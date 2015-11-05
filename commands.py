@@ -42,7 +42,8 @@ class SpeakCommand(Command):
 
 class SingCommand(Command):
     def  execute(self):
-         os.system("say -v cellos \"Doo da doo da dum dee dee doodly doo dum dum dum doo da doo da doo da doo da doo da doo da doo\"")
+         os.system("say -v cellos \"Doo da doo da dum dee dee doodly doo dum \
+            dum dum doo da doo da doo da doo da doo da doo da doo\"")
 
 class ItunesCommand(Command):
     def execute(self):
