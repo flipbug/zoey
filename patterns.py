@@ -1,7 +1,10 @@
-# list of all available command and the corresponding regex pattern
+# a list of all available commands and the corresponding regex pattern
 PATTERNS = {
-    'exit': "^(exit|quit|q)",
+    'exit': "^(exit|quit|:q)",
     'help': "^(help|man)",
-    'info': "^info",
-    'vimeo': "^show.*video"
+    'info': "^(info|who are you)",
+    'vimeo': "^show.*video",
+    'speak': "^speak",
+    'itunes': "^(play|stop|next|previous)",
+    'test': "^test"
 }
