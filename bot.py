@@ -1,20 +1,33 @@
+import sys
 from parser import *
 
 class Bot:
 
-    def __init__(self):
-        print "Hello, i am a bot."
+    input = ""
+
+    def __init__(self, input):
+        if input:
+            self.input = input
+        else:
+            print "Hello, i am a bot."
 
     def __del__(self):
-        print "Good bye"
+        if not input:
+            print "Good bye"
 
     def start(self):
         parser = Parser()
 
-        while True:
-            input = raw_input(">> ")
-            command = parser.parseCommand(input)
+        # don't loop if argument is already defined
+        if self.input:
+            command = parser.parseCommand(self.input)
             command.execute()
+        else:
+            while True:
+                input = raw_input(">> ")
+                command = parser.parseCommand(input)
+                command.execute()
 
-bot = Bot()
+input = ' '.join(sys.argv[1:])
+bot = Bot(input)
 bot.start()
