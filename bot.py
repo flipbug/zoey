@@ -18,7 +18,7 @@ class Bot:
     def start(self):
         parser = Parser()
 
-        # don't loop if argument is already defined
+        # don't loop if an input is already defined
         if self.input:
             command = parser.parseCommand(self.input)
             command.execute()

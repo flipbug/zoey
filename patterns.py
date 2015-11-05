@@ -5,6 +5,7 @@ PATTERNS = {
     'info': "^(info|who are you)",
     'vimeo': "^show.*video",
     'speak': "^speak",
+    'sing': "^sing",
     'itunes': "^(play|stop|next|previous)",
     'test': "^test"
 }
