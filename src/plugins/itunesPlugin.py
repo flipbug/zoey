@@ -1,8 +1,8 @@
 import os
 import re
 
-from actionProvider import ActionProvider
-from command import Command
+from utils.actionProvider import ActionProvider
+from utils.command import Command
 
 class ItunesComponent(ActionProvider):
     name = "Itunes"

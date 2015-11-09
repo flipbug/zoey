@@ -1,11 +1,11 @@
 import os
 
-from actionProvider import ActionProvider
-from command import Command
+from utils.actionProvider import ActionProvider
+from utils.command import Command
 
-class VoicePlugin(ActionProvider)
+class VoicePlugin(ActionProvider):
     name = "Voice"
-    
+
     def processCommand(self):
         pass
 

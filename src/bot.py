@@ -1,9 +1,10 @@
 import sys
 
-from actionProvider import ActionProvider
-from plugins import corePlugin, itunesPlugin, VimeoPlugin, VoicePlugin
-from command import Command
-from parser import Parser
+from utils.command import Command
+from utils.parser import Parser
+from utils.actionProvider import ActionProvider
+
+from plugins import corePlugin, itunesPlugin, vimeoPlugin, voicePlugin
 
 class Bot:
 
@@ -26,14 +27,14 @@ class Bot:
             print p.name
 
         # don't loop if an input is already defined
-    """
+        """
             if self.input:
                 self.dispatchCommand(parser.parseCommand(self.input))
             else:
                 while True:
                     input = raw_input(">> ")
                     self.dispatchCommand(parser.parseCommand(input))
-    """
+        """
     def dispatchCommand(self, command):
         pass
 
