@@ -1,5 +1,9 @@
 import sys
-from parser import *
+
+from actionProvider import ActionProvider
+from plugins import corePlugin, itunesPlugin, VimeoPlugin, VoicePlugin
+from command import Command
+from parser import Parser
 
 class Bot:
 
@@ -18,15 +22,21 @@ class Bot:
     def start(self):
         parser = Parser()
 
+        for p in ActionProvider.plugins:
+            print p.name
+
         # don't loop if an input is already defined
-        if self.input:
-            command = parser.parseCommand(self.input)
-            command.execute()
-        else:
-            while True:
-                input = raw_input(">> ")
-                command = parser.parseCommand(input)
-                command.execute()
+    """
+            if self.input:
+                self.dispatchCommand(parser.parseCommand(self.input))
+            else:
+                while True:
+                    input = raw_input(">> ")
+                    self.dispatchCommand(parser.parseCommand(input))
+    """
+    def dispatchCommand(self, command):
+        pass
+
 
 input = ' '.join(sys.argv[1:])
 bot = Bot(input)
