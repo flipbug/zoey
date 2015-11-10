@@ -2,7 +2,7 @@ import sys
 
 from utils.command import Command
 from utils.parser import Parser
-from utils.actionProvider import ActionProvider
+from utils.pluginProvider import PluginProvider
 
 from plugins import corePlugin, itunesPlugin, vimeoPlugin, voicePlugin
 
@@ -29,7 +29,7 @@ class Bot:
 
     def fetchCommandPatterns(self):
         commandPatterns = {}
-        for plugin in ActionProvider.plugins:
+        for plugin in PluginProvider.plugins:
             if hasattr(plugin, 'commandPatterns'):
                 commandPatterns.update(plugin.commandPatterns)
         return commandPatterns
@@ -48,7 +48,7 @@ class Bot:
     def dispatchCommand(self, input):
         try:
             command = self._parser.getCommandFromInput(input)
-            for plugin in ActionProvider.plugins:
+            for plugin in PluginProvider.plugins:
                 if command.getKeyword() in plugin.commandPatterns:
                     pluginObj = plugin()
                     return pluginObj.processCommand(command)

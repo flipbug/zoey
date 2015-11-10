@@ -1,11 +1,11 @@
 import os
 import re
 
-from utils.actionProvider import ActionProvider
+from utils.pluginProvider import PluginProvider
 from utils.command import Command
 from plugins.basePlugin import BasePlugin
 
-class CorePlugin(ActionProvider, BasePlugin):
+class CorePlugin(PluginProvider, BasePlugin):
     name = 'Core'
 
     commandPatterns = {
@@ -23,7 +23,7 @@ class CorePlugin(ActionProvider, BasePlugin):
 
     def help(self):
         print "available commands: "
-        for plugin in ActionProvider.plugins:
+        for plugin in PluginProvider.plugins:
             print plugin.commandPatterns
 
     def test(self):

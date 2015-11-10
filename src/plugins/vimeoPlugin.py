@@ -1,9 +1,9 @@
 import webbrowser
 
-from utils.actionProvider import ActionProvider
+from utils.pluginProvider import PluginProvider
 from utils.command import Command
 
-class VimeoPlugin(ActionProvider):
+class VimeoPlugin(PluginProvider):
     name = "Vimeo"
 
     commandPatterns = {

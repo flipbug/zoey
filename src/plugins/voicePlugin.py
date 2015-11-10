@@ -1,11 +1,11 @@
 import os
 
-from utils.actionProvider import ActionProvider
+from utils.pluginProvider import PluginProvider
 from utils.command import Command
 from plugins.basePlugin import BasePlugin
 
 
-class VoicePlugin(ActionProvider, BasePlugin):
+class VoicePlugin(PluginProvider, BasePlugin):
     name = "Voice"
 
     commandPatterns = {

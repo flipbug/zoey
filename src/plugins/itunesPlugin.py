@@ -1,20 +1,15 @@
 import os
 import re
 
-from utils.actionProvider import ActionProvider
+from utils.pluginProvider import PluginProvider
 from utils.command import Command
 
-class ItunesPlugin(ActionProvider):
+class ItunesPlugin(PluginProvider):
     name = "Itunes"
-    
-    commandPatterns = {
-        'exit': "^(exit|quit|:q)",
-        'help': "^(help|man|-h)",
-        'info': "^(info|who are you)",
-    }
 
-    def __init__(self, request, *args, **kwargs):
-        pass
+    commandPatterns = {
+        'itunes': "^(itunes|play|stop|next|previous)",
+    }
 
     def processCommand(self, command):
         if re.search("play", command.keyWord):
