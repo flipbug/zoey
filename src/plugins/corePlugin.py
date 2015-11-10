@@ -3,30 +3,40 @@ import re
 
 from utils.actionProvider import ActionProvider
 from utils.command import Command
+from plugins.basePlugin import BasePlugin
 
-class CorePlugin(ActionProvider):
+class CorePlugin(ActionProvider, BasePlugin):
     name = 'Core'
 
-    def __init__(self, request, *args, **kwargs):
-        pass
+    commandPatterns = {
+        'exit': "^(exit|quit|:q)",
+        'help': "^(help|man|-h)",
+        'test': "^test",
+        'info': "^(info|who are you)",
+    }
 
     def processCommand(self, command):
-        pass
+        return super(CorePlugin, self).processCommand(command)
 
-    def info():
+    def info(self):
         print "I'm a bot, yo!"
 
-    def help():
+    def help(self):
         print "available commands: "
+        for plugin in ActionProvider.plugins:
+            print plugin.commandPatterns
 
-    def test():
+    def test(self):
         # create a osx notification
         title = "hello world"
         body = self.inputString
-        os.system("osascript -e 'display notification \"" + body + "\" with title \"" + title + "\"'")
+        os.system(
+            "osascript -e 'display notification \"" +
+            body +
+            "\" with title \"" +
+            title +
+            "\"'"
+        )
 
-    def unknownCommand():
-        print "I don't understand."
-
-    def exit():
+    def exit(self):
         exit()

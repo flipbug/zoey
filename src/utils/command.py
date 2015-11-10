@@ -7,13 +7,13 @@ class Command:
     def __init__(self, keyword, inputString):
         self.inputString = inputString
         self.keyword = keyword
-        self.arguments = self.getArgumentsFromInput()
+        self.arguments = self._getArgumentsFromInput()
 
-    def _getArgumentsFromInput():
+    def _getArgumentsFromInput(self):
         return []
 
-    def getKeyword():
+    def getKeyword(self):
         return self.keyword
 
-    def getArguments():
+    def getArguments(self):
         return self.arguments

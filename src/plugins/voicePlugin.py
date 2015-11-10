@@ -2,12 +2,19 @@ import os
 
 from utils.actionProvider import ActionProvider
 from utils.command import Command
+from plugins.basePlugin import BasePlugin
 
-class VoicePlugin(ActionProvider):
+
+class VoicePlugin(ActionProvider, BasePlugin):
     name = "Voice"
 
-    def processCommand(self):
-        pass
+    commandPatterns = {
+        'speak': "^speak",
+        'sing': "^sing",
+    }
+
+    def processCommand(self, command):
+        return super(VoicePlugin, self).processCommand(command)
 
     def speak(self):
         os.system("say -v vicki \"bleep blop i'm a bot!\"")

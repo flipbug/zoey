@@ -6,13 +6,11 @@ class ActionProvider:
 
     Plugins implementing this reference should provide the following attributes:
 
-    ========  ========================================================
-    title     The text to be displayed, describing the action
+    ================    =======================================================
+    name                The name of the plugin
 
-    url       The URL to the view where the action will be carried out
-
-    selected  Boolean indicating whether the action is the one
-              currently being performed
-    ========  ========================================================
+    commandPatterns     A Dictonary which contains a regex pattern for each
+                        Keyword.
+    ================    ======================================================
     """
     __metaclass__ = PluginMount

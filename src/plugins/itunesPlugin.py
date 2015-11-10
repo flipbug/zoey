@@ -4,8 +4,14 @@ import re
 from utils.actionProvider import ActionProvider
 from utils.command import Command
 
-class ItunesComponent(ActionProvider):
+class ItunesPlugin(ActionProvider):
     name = "Itunes"
+    
+    commandPatterns = {
+        'exit': "^(exit|quit|:q)",
+        'help': "^(help|man|-h)",
+        'info': "^(info|who are you)",
+    }
 
     def __init__(self, request, *args, **kwargs):
         pass

@@ -4,6 +4,3 @@ class PluginMount(type):
             cls.plugins = []
         else:
             cls.plugins.append(cls)
-
-    def getPlugins(cls, *args, **kwargs):
-        return [p(*args, **kwargs) for p in cls.plugins]
